@@ -8,11 +8,27 @@ from avisionmachinecontrol import machinecontrol
 machine = machinecontrol()
 ```
 
-## TWO-WAY MOTOR OUTPUTS
-> Valid output values are: OFF, LEFT, RIGHT, UP, DOWN
+## STANDARD MOTOR OUTPUTS
+> Valid output values are: ON, OFF
+>
+> Range: 1..3
 
 ```python
-# Assign a machine two-way motor output to a variable (range 1..7)
+# Assign a standard motor output to a variable
+nicemotornamestd = machine.motor[2]
+# Set a standard motor output (using variable)
+nicemotornamestd.value = machinecontrol.ON
+# Set a standard motor output (directly)
+machine.motor[3] = machinecontrol.ON
+```
+
+## TWO-WAY MOTOR OUTPUTS
+> Valid output values are: OFF, LEFT, RIGHT, UP, DOWN
+>
+> Range: 1..7
+
+```python
+# Assign a machine two-way motor output to a variable
 nicemotorname = machine.twowaymotor[4]
 # Set a two-way motor output direction (using variable)
 nicemotorname.direction = machinecontrol.UP
@@ -22,9 +38,11 @@ machine.twowaymotor[3] = machinecontrol.RIGHT
 
 ## POWER (220V) OUTPUTS
 > Valid output values are: ON, OFF
+>
+> Range: 1..2
 
 ```python
-# Assign a power output to a variable (range 1..2)
+# Assign a power output to a variable
 nicepowername = machine.power[2]
 # Set a power output (using variable)
 nicepowername.value = machinecontrol.ON
@@ -32,20 +50,10 @@ nicepowername.value = machinecontrol.ON
 machine.power[1] = machinecontrol.ON
 ```
 
-## STANDARD MOTOR OUTPUTS
-> Valid output values are: ON, OFF
-
-```python
-# Assign a standard motor output to a variable (range 1..3)
-nicemotornamestd = machine.motor[2]
-# Set a standard motor output (using variable)
-nicemotornamestd.value = machinecontrol.ON
-# Set a standard motor output (directly)
-machine.motor[3] = machinecontrol.ON
-```
-
 ## STANDARD DIGITAL INPUTS / OUTPUTS
 > Valid output values are: ON, OFF
+>
+> Range: 0..31
 
 > Input pins have a pull-up resistor and
 > will return True if not connected
@@ -59,9 +67,9 @@ machine.motor[3] = machinecontrol.ON
 > damage the interface card
 
 ```python
-# Read an input (range 0..31)
+# Read an input
 print('I4:', machine.input[4])
-# Set an output (range 0..31)
+# Set an output
 machine.output[19] = machinecontrol.OFF
 ```
 
