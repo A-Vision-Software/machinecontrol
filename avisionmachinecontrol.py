@@ -22,9 +22,7 @@
 #*
 #*******************************************************************************/
 
-from ast import Try
-from gpiozero import Button, LED
-from signal import pause
+from gpiozero import Motor, LED
 from time import sleep
 
 from pcf8575 import PCF8575
@@ -119,35 +117,48 @@ class machinecontroltwowaymotor(list):
 class twowaymotor:
 
     def __init__(self, pinLeft, pinRight):
-        self.left = LED(pinLeft)
-        self.right = LED(pinRight)
+        self.motor = Motor(pinLeft, pinRight)
+        self._speed = 1
         self._direction = machineconstants.OFF
     
+    @property
+    def speed(self):
+        return self._speed
+    
+    @speed.setter
+    def speed(self, value):
+        assert value <= 1
+        self._speed = value
+        self.direction = self._direction
+
     @property
     def direction(self):
         return None
     
     @direction.setter
     def direction(self, value):
-        if (value == machineconstants.OFF):
-            self.left.off()
-            self.right.off()
+        if (value == machineconstants.OFF and self._direction != machineconstants.OFF):
+            self.motor.stop()
 
-        if (value == machineconstants.LEFT):
-            if (self._direction != machineconstants.OFF):
-                self.left.off()
-                self.right.off()
-                sleep(0.1)
-
-            self.left.on()
-
-        if (value == machineconstants.RIGHT):
-            if (self._direction != machineconstants.OFF):
-                self.left.off()
-                self.right.off()
+        if (value == machineconstants.LEFT and self._direction != machineconstants.LEFT):
+            if (self._direction != machineconstants.OFF or self.motor.is_active):
+                self.motor.stop()
                 sleep(0.01)
 
-            self.right.on()
+            self.motor.forward(self._speed)
+
+        if (value == machineconstants.LEFT and self._direction == machineconstants.LEFT):
+            self.motor.forward(self._speed)
+
+        if (value == machineconstants.RIGHT and self._direction != machineconstants.RIGHT):
+            if (self._direction != machineconstants.OFF or self.motor.is_active):
+                self.motor.stop()
+                sleep(0.01)
+
+            self.motor.backward(self._speed)
+
+        if (value == machineconstants.RIGHT and self._direction == machineconstants.RIGHT):
+            self.motor.backward(self._speed)
 
         self._direction = value
 

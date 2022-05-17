@@ -23,7 +23,8 @@ machine.motor[3] = machinecontrol.ON
 ```
 
 ## TWO-WAY MOTOR OUTPUTS
-> Valid output values are: OFF, LEFT, RIGHT, UP, DOWN
+> Valid output values are: OFF, LEFT, RIGHT, UP, DOWN<br>
+> Valid speed values are: 0.0 .. 1.0
 >
 > Range: 1..7
 
@@ -32,6 +33,8 @@ machine.motor[3] = machinecontrol.ON
 nicemotorname = machine.twowaymotor[4]
 # Set a two-way motor output direction (using variable)
 nicemotorname.direction = machinecontrol.UP
+# Set a two-way motor output speed (using variable)
+nicemotorname.speed = 0.2 # Speed controlled with PWM
 # Set a two-way motor output direction (directly)
 machine.twowaymotor[3] = machinecontrol.RIGHT
 ```
@@ -61,7 +64,7 @@ machine.power[1] = machinecontrol.ON
 > All I/O is configured as INPUTS at
 > system boot
 
-### <font color="red">**!WARNING!**</font>
+### **!WARNING!**
 > Setting an output to OFF and supplying 
 > a voltage (VCC) to the output pin will
 > damage the interface card
