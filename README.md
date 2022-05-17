@@ -39,6 +39,7 @@
 
 > Input pins have a pull-up resistor and
 > will return True if not connected
+>
 > All I/O is configured as INPUTS at
 > system boot
 
