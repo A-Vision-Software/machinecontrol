@@ -37,7 +37,8 @@ sleep(1)
 ### POWER (220V) OUTPUTS ###
 ############################
 #
-# Valid output values are: ON, OFF
+# Valid output values are:
+#   ON, OFF
 #
 ############################
 print('POWER (220V) OUTPUTS')
@@ -47,7 +48,6 @@ nicepowername = machine.power[2]
 nicepowername.value = machinecontrol.ON
 # Set a power output (directly)
 machine.power[1] = machinecontrol.ON
-# Valid values are: ON, OFF
 
 sleep(1)
 
