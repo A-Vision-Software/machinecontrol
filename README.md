@@ -5,7 +5,7 @@
     machine = machinecontrol()
 
 ## TWO-WAY MOTOR OUTPUTS
-### Valid output values are: OFF, LEFT, RIGHT, UP, DOWN
+> Valid output values are: OFF, LEFT, RIGHT, UP, DOWN
 
     # Assign a machine two-way motor output to a variable (range 1..7)
     nicemotorname = machine.twowaymotor[4]
@@ -15,7 +15,7 @@
     machine.twowaymotor[3] = machinecontrol.RIGHT
 
 ## POWER (220V) OUTPUTS
-### Valid output values are: ON, OFF
+> Valid output values are: ON, OFF
 
     # Assign a power output to a variable (range 1..2)
     nicepowername = machine.power[2]
@@ -25,7 +25,7 @@
     machine.power[1] = machinecontrol.ON
 
 ## STANDARD MOTOR OUTPUTS
-### Valid output values are: ON, OFF
+> Valid output values are: ON, OFF
 
     # Assign a standard motor output to a variable (range 1..3)
     nicemotornamestd = machine.motor[2]
@@ -46,7 +46,7 @@
 > a voltage (VCC) to the output pin will
 > damage the interface card
 
-### Valid output values are: ON, OFF
+> Valid output values are: ON, OFF
 
     # Read an input (range 0..31)
     print('I4:', machine.input[4])
