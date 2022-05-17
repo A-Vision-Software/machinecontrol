@@ -61,7 +61,7 @@ machine.power[1] = machinecontrol.ON
 > All I/O is configured as INPUTS at
 > system boot
 
-### !WARNING!
+### <font color="red">**!WARNING!**</font>
 > Setting an output to OFF and supplying 
 > a voltage (VCC) to the output pin will
 > damage the interface card
