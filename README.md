@@ -35,7 +35,8 @@
     machine.motor[3] = machinecontrol.ON
 
 ## STANDARD DIGITAL INPUTS / OUTPUTS
-### INFO
+> Valid output values are: ON, OFF
+
 > Input pins have a pull-up resistor and
 > will return True if not connected
 > All I/O is configured as INPUTS at
@@ -46,7 +47,6 @@
 > a voltage (VCC) to the output pin will
 > damage the interface card
 
-> Valid output values are: ON, OFF
 
     # Read an input (range 0..31)
     print('I4:', machine.input[4])
