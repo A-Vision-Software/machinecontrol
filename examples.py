@@ -31,6 +31,7 @@ nicemotorname.direction = machinecontrol.UP
 # Set motor speed (PWM)
 nicemotorname.speed = 0.8
 # Set a two-way motor output direction (directly)
+print('TWO-WAY MOTOR SPEED 0.8')
 machine.twowaymotor[3] = machinecontrol.RIGHT
 machine.twowaymotor[3].speed = 0.2
 
@@ -38,6 +39,7 @@ sleep(5)
 
 # Update motor speed (PWM)
 nicemotorname.speed = 0.1
+print('TWO-WAY MOTOR SPEED 0.1')
 
 sleep(5)
 
@@ -45,14 +47,16 @@ sleep(5)
 nicemotorname.direction = machinecontrol.DOWN
 # Update motor speed (PWM)
 nicemotorname.speed = 0.3
+print('TWO-WAY MOTOR SPEED 0.3')
 # Set a two-way motor output direction (directly)
 machine.twowaymotor[3] = machinecontrol.LEFT
 
 sleep(5)
 
 nicemotorname.direction = machinecontrol.OFF
-machine.twowaymotor[3] = machinecontrol.OFF
+machine.twowaymotor[3] = machinecontrol.BREAK
 
+print('TWO-WAY MOTOR OFF')
 sleep(1)
 
 ############################

@@ -36,6 +36,7 @@ class machineconstants:
     RIGHT = 2
     UP = 1
     DOWN = 2
+    BREAK = 3
 
 # All power outputs as a list
 class machinecontrolpower(list):
@@ -118,6 +119,8 @@ class twowaymotor:
 
     def __init__(self, pinLeft, pinRight):
         self.motor = Motor(pinLeft, pinRight)
+        #self.pinLeft = LED(pinLeft)
+        #self.pinRight = LED(pinRight)
         self._speed = 1
         self._direction = machineconstants.OFF
     
@@ -159,6 +162,9 @@ class twowaymotor:
 
         if (value == machineconstants.RIGHT and self._direction == machineconstants.RIGHT):
             self.motor.backward(self._speed)
+
+        if (value == machineconstants.BREAK and self._direction != machineconstants.BREAK):
+            self.motor.backward(0)
 
         self._direction = value
 
