@@ -17,7 +17,7 @@
 #*
 #* sudo raspi-config
 #*  -> Interface Options
-#*    -> Enable I2C support
+#*    -> Enable I2C support (i2cdetect -y 1)
 #*    -> Enable 1-Wire support
 #*
 #*******************************************************************************/
